@@ -1,12 +1,12 @@
 {
   "name": "cryptopi",
   "version": "1.0.0",
-  "description": "",
+  "description": "Cryptocurrency price-tracking app with Raspberry Pi and Google Assistant integration",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Rafał Krókowski",
   "license": "ISC",
   "dependencies": {
     "gdax": "^0.7.0",
