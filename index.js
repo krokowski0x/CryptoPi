@@ -1,14 +1,17 @@
-const five = require("johnny-five");
-const GDAX = require('gdax');
-
-const board = new five.Board();
-const webSocket = new GDAX.WebsocketClient(['ETH-EUR']);
-
-board.on("ready", function() {
-  const lcd = new five.LCD({ pins: [7, 8, 9, 10, 11, 12] });
-  lcd.print("Hello");
+var five = require("johnny-five");
+var SerialPort = require('serialport');
+var board = new five.Board({
+  port: "COM3"
 });
 
-webSocket.on('message', data => {
-  console.log(data.price);
+board.on("ready", function() {
+
+  const lcd = new five.LCD({
+    pins: [2,3,4,5,6,7],
+    backlight: 6,
+    rows: 2,
+    cols: 16
+  });
+
+  lcd.clear().print("Hello!");
 });
