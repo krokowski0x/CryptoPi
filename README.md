@@ -1,9 +1,8 @@
-# CryptoPi.js
+# CryptoPi.js (Arduino Version)
 
-Cryptocurrency price-tracking app with Raspberry Pi and Google Assistant integration.
+Cryptocurrency price-tracking app mock with Arduino Uno Rev 3.
 
 ## Brief description
 
-Goal of this project is to have a handy on-desk **Cryptocurrency Tracker** that displays prices data like in that old-school [LED Stock Tickers](https://www.google.pl/search?q=led+stock+ticker&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjggLDyz-_aAhXB2qQKHb6qDBoQ_AUICigB&biw=1920&bih=974).
-App will eventually also let you **buy/sell crypto, set stop-losses and alert big price changes**.
-Further development also consist of integration with [Google Assistant](https://assistant.google.com) with [Dialogflow](https://dialogflow.com/) recognizing voice commands.
+This is a branch that is used for testing **hardware and prototyping**.
+The goal is to have the same functionality as the original app but with **Arduino Uno Rev 3** instead of Raspberry Pi 3 B+ and with mock data (because of lack of Internet connection).
