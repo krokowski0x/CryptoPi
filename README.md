@@ -9,11 +9,12 @@ Cryptocurrency price-tracking app and hardware with Raspberry Pi 3 B+, first moc
 ## Brief description
 
 App lets you keep track of prices of the most popular cryptos with hand gestures and soon with voice.
+It was mocked with Arduino, because of lack of WiFi in Uno Rev 3 model, but now it's being developed on Raspberry Pi 3 B+.
 
 ## Built With
 
 * [Raspberry Pi 3B+](https://www.raspberrypi.org/)
-* [Arduino](https://www.arduino.cc/)
+* [Arduino Uno Rev 3](https://www.arduino.cc/)
 * [Johnny Five](http://johnny-five.io/)
 * [Node.js](https://nodejs.org/en/)
 * Plenty of hardware from [Botland](https://botland.com.pl/)
