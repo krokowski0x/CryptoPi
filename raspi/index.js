@@ -1,31 +1,34 @@
-const five = require("johnny-five");
-const Raspi = require("raspi-io");
-const board = new five.Board({
-  io: new Raspi(),
+const readline = require('readline');
+const mainMenu = require('./menuFactory').mainMenu;
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
 });
 
-const cryptos = ['BTC 1000.45', 'ETH 700,89', 'LTC 89.76'];
-let i = 0;
+/***** MAIN *****/
 
-board.on("ready", function() {
-  const motion = new five.Motion('P1-8');
-  const lcd = new five.LCD({
-    pins: ['P1-37', 'P1-35', 'P1-33', 'P1-31', 'P1-29', 'P1-23'],
-    backlight: 3,
-    rows: 2,
-    cols: 16,
-  });
-  const led = new five.Led('P1-7');
+let current = mainMenu.head;
+rl.write(`${mainMenu.head.data}\n`);
 
-  led.blink();
-  lcd.clear().print('Hello!');
-  motion.on("calibrated", function() {
-    console.log("calibrated");
-  });
-
-  motion.on("change", function() {
-    lcd.clear().print(cryptos[i]);
-    i === 2 ? i = 0 : i++;
-  });
-
+rl.on('line', (input) => {
+  switch(input) {
+    case 'next':
+      current = current.next;
+      rl.write(`${current.data}\n`);
+    break;
+    case 'ok':
+      current = current.down;
+      rl.write(`${current.data}\n`);
+    break;
+    case 'back':
+    if (current.up) {
+      current = current.up;
+    } else {
+      while(!current.up)
+        current = current.next;
+      current = current.up;
+    }
+    rl.write(`${current.data}\n`);
+    break;
+  }
 });
