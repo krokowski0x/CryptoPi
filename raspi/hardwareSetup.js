@@ -11,15 +11,6 @@ board.on("ready", function() {
     rows: 2,
     cols: 16,
   });
-  const button = new five.Button(2);
-  board.repl.inject({
-    button: button
-  });
-
-  // "up" the button is released
-  button.on("up", function() {
-    console.log("up");
-  });
   lcd.clear();
 });
 // const motion = new five.Motion('P1-8');
