@@ -1,16 +1,21 @@
 {
-  "name": "cryptopi",
+  "name": "CryptoPi.js",
   "version": "1.0.0",
-  "description": "Cryptocurrency price-tracking app with Raspberry Pi and Google Assistant integration",
+  "description": "Cryptocurrency price-tracking app with Raspberry Pi and future Google Assistant integration",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "author": "Rafał Krókowski",
   "license": "ISC",
   "dependencies": {
     "firmata": "^0.19.1",
+    "gdax": "^0.8.0",
     "johnny-five": "^0.14.3",
     "serialport": "^6.2.0"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0"
   }
 }
