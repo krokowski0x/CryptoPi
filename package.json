@@ -12,6 +12,7 @@
     "firmata": "^0.19.1",
     "gdax": "^0.8.0",
     "johnny-five": "^0.14.3",
+    "node-fetch": "^2.1.2",
     "serialport": "^6.2.0"
   },
   "devDependencies": {
