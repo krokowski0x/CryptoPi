@@ -1,5 +1,5 @@
 const readline = require('readline');
-const mainMenu = require('./menuFactory').mainMenu;
+const mainMenu = require('./MenuFactory');
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
@@ -8,27 +8,34 @@ const rl = readline.createInterface({
 /***** MAIN *****/
 
 let current = mainMenu.head;
-rl.write(`${mainMenu.head.data}\n`);
+let args = [];
+rl.write(`${current.data}\n`);
 
 rl.on('line', (input) => {
   switch(input) {
-    case 'next':
-      current = current.next;
-      rl.write(`${current.data}\n`);
+
+    case 'n':
+      if (current.next) {
+        current = current.next;
+        rl.write(`${current.data}\n`);
+      }
     break;
-    case 'ok':
+
+    case 'k':
+      args.push(current.data)
       current = current.down;
-      rl.write(`${current.data}\n`);
+      if (typeof current.data === 'function')
+        current.data(args);
+      else
+        rl.write(`${current.data}\n`);
     break;
-    case 'back':
-    if (current.up) {
-      current = current.up;
-    } else {
+
+    case 'b':
       while(!current.up)
         current = current.next;
+      args.pop();
       current = current.up;
-    }
-    rl.write(`${current.data}\n`);
+      rl.write(`${current.data}\n`);
     break;
   }
 });
