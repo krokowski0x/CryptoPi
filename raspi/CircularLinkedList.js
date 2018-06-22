@@ -11,11 +11,12 @@ class Node {
     node.up = this;
     return this;
   }
-}
+};
 
-class LinkedListOnSteroids {
+class CircularLinkedList {
   constructor(entries, viewFunction) {
     this.head = null;
+    this.nodes = [];
     this.length = 0;
 
     for (let entry of entries)
@@ -30,6 +31,7 @@ class LinkedListOnSteroids {
 
     if (!nodeToCheck) {
       this.head = node;
+      this.nodes.push(node);
       this.length++;
       return this;
     }
@@ -39,6 +41,7 @@ class LinkedListOnSteroids {
     }
 
     nodeToCheck.next = node;
+    this.nodes.push(node);
     this.length++;
     return node;
   }
@@ -58,4 +61,7 @@ class LinkedListOnSteroids {
   }
 };
 
-module.exports = { LinkedListOnSteroids, Node };
+module.exports = {
+  CircularLinkedList,
+  Node,
+};
