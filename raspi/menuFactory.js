@@ -1,19 +1,43 @@
-const { LinkedListOnSteroids, Node } = require('./LinkedListOnSteroids');
+const { CircularLinkedList, Node } = require('./CircularLinkedList');
+const TickerTapeMode = require('../modes/TickerTapeMode');
+const SingleCurrencyMode = require('../modes/SingleCurrencyMode');
 
-const mainMenu =         new LinkedListOnSteroids(['1. Market Prices','2. My Account','3. Exit']);
-const marketPricesMenu = new LinkedListOnSteroids(['Ticker Tape Mode','Currency View Mode']);
-const tickerTapeMenu =   new LinkedListOnSteroids(['BTC','USD', 'EUR', 'GBP']);
-const currencyMenu =     new LinkedListOnSteroids(['BTC', 'ETH', 'LTC', 'BCH']);
-const myCurrencies =     new LinkedListOnSteroids(['BTC', 'ETH', 'LTC', 'BCH']);
-const exitMenu =         new LinkedListOnSteroids(['Yes', 'No']);
+const mainMenu = new CircularLinkedList(['1. Market Prices','2. My Account','3. Exit']);
+const modePicker = new CircularLinkedList(['Ticker Tape Mode','Currency View Mode']);
 
-mainMenu.head.addChild(marketPricesMenu.head);
-mainMenu.head.next.addChild(myCurrencies.head);
-mainMenu.head.next.next.addChild(exitMenu.head);
+// TickerTapeMode options
+const currPicker = new CircularLinkedList(['BTC','USD', 'EUR', 'GBP']);
 
-marketPricesMenu.head.addChild(tickerTapeMenu.head);
-marketPricesMenu.head.next.addChild(currencyMenu.head);
+// SingleCurrencyMode options
+const baseCurrPicker = new CircularLinkedList(['BTC','USD', 'EUR', 'GBP']);
+const mainCurrPicker = new CircularLinkedList(['BTC', 'ETH', 'LTC', 'BCH']);
 
-module.exports = {
-  mainMenu,
-};
+// Exit options
+const exitOpts = new CircularLinkedList(['Yes', 'No']);
+
+const TTMode = new Node(lel);
+const SCMode = new Node(lel);
+
+// 1. Market Prices -> TickerTapeMode or SingleCurrencyMode
+mainMenu.head.addChild(modePicker.head);
+  // Ticker Tape Mode -> Base Currency Picker
+  modePicker.head.addChild(currPicker.head);
+    // Base Currency -> TTMode()
+    for (let node of currPicker.nodes)
+      node.addChild(TTMode);
+
+  // Currency View Mode -> Base Currency Picker
+  modePicker.head.next.addChild(baseCurrPicker.head);
+    // Base Currency -> Main Currency
+    for (let base of baseCurrPicker.nodes)
+      base.addChild(mainCurrPicker.head);
+      // Base Currency -> SCMode()
+      for (let main of mainCurrPicker.nodes)
+        main.addChild(SCMode);
+
+// 2. My Account
+
+// 3. Exit
+mainMenu.head.next.next.addChild(exitOpts.head);
+
+module.exports = mainMenu;
