@@ -22,7 +22,12 @@ rl.on('line', (input) => {
     break;
 
     case 'k':
-      args.push(current.data)
+      if (!current.down) {
+        current = current.up;
+        rl.write(`${current.data}\n`);
+        break;
+      }
+      args.push(current.data);
       current = current.down;
       if (typeof current.data === 'function')
         current.data(args);
