@@ -1,5 +1,5 @@
 const readline = require('readline');
-const mainMenu = require('./MenuFactory');
+const mainMenu = require('../setup/MenuSetup');
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
