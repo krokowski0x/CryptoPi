@@ -3,20 +3,28 @@ const sleep = require('sleep').msleep;
 function display(digit) {
   let first = Math.floor(digit/10);
   let second = digit % 10;
-
-  while(true) {
-    DISP_1.on();
-    DISP_2.off();
-    displayDigit(first);
-    sleep(10);
-    DISP_1.off();
-    DISP_2.on();
-    displayDigit(second);
-    sleep(10);
-  }
+  const DISP_1 = new five.Led('P1-18');
+  const DISP_2 = new five.Led('P1-16');
+  
+  DISP_1.on();
+  DISP_2.off();
+  displayDigit(first);
+  sleep(10);
+  DISP_1.off();
+  DISP_2.on();
+  displayDigit(second);
+  sleep(10);
 };
 
 function displayDigit(digit) {
+  const SEG_C =  new five.Led('P1-40');
+  const SEG_E =  new five.Led('P1-38');
+  const SEG_D =  new five.Led('P1-36');
+  const SEG_B =  new five.Led('P1-32');
+  const SEG_G =  new five.Led('P1-26');
+  const SEG_A =  new five.Led('P1-24');
+  const SEG_F =  new five.Led('P1-22');
+
   switch (digit) {
     case 0:
         SEG_A.on();

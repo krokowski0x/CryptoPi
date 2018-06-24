@@ -1,10 +1,12 @@
 const five = require('johnny-five');
 const Raspi = require('raspi-io');
-const  { display, displayDigit } = require('../setup/HardwareSetup');
+const { next, ok, back } = require('./utils');
+const mainMenu = require('../setup/MenuSetup');
 
 const board = new five.Board({ io: new Raspi() });
 
 board.on("ready", () => {
+  /***** SETUP *****/
 
   // LCD display
   const lcd = new five.LCD({
@@ -28,27 +30,15 @@ board.on("ready", () => {
 
   // 7-segment display -/+ control
   const decBtn = new five.Button({ pin: 'P1-12', isPullup: true });
-  const incBtn = new five.Button({ pin: 'P1-10', isPullup: true });
+  const incBtn = new five.Button({ pin: 'P1-8', isPullup: true });
 
-  // Double 7-segment display
-  const SEG_C =  new five.Led('P1-40');
-  const SEG_E =  new five.Led('P1-38');
-  const SEG_D =  new five.Led('P1-36');
-  const SEG_B =  new five.Led('P1-32');
-  const SEG_G =  new five.Led('P1-26');
-  const SEG_A =  new five.Led('P1-24');
-  const SEG_F =  new five.Led('P1-22');
-  const DISP_1 = new five.Led('P1-18');
-  const DISP_2 = new five.Led('P1-16');
+  /***** MAIN *****/
 
-  lcd.clear();
-  display(53);
-  buyLed.blink(500);
-  sellLed.blink(300);
-  motion.on("change", () => lcd.clear().print('Motion works'));
-  decBtn.on("up", () => lcd.clear().print('- works'));
-  incBtn.on("up", () => lcd.clear().print('+ works'));
-  backBtn.on("up", () => lcd.clear().print('back works'));
-  okBtn.on("up", () => lcd.clear().print('ok works'));
-  nextBtn.on("up", () => lcd.clear().print('next works'));
+  let current = mainMenu.head;
+  let args = [];
+  lcd.clear().print(current.data);
+
+  backBtn.on("up", () => back(current));
+  okBtn.on("up", () => ok(current));
+  nextBtn.on("up", () => next(current));
 });
