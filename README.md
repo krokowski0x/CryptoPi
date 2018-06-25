@@ -6,7 +6,7 @@ Cryptocurrency price-tracking app and hardware with Raspberry Pi 3 B+, first moc
 
 ![](schematic/CryptoPi.gif)
 
-## Circuit schematic
+## Circuit schematic (without wiring, to keep it clean)
 
 ![Circuit schematic](schematic/schematic.png)
 
