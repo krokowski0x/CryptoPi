@@ -12,7 +12,7 @@ It was mocked with Arduino, because of lack of Wi-Fi in Uno Rev 3 model, but now
 * Trading/Account Mode - Check Your balance, buy/sell cryptos with a few button clicks
 * Custom menu build as a Tree of Linked Lists
 
-![](schematic/MenuDiagram.gif)
+![](schematic/MenuDiagram.png)
 
 ## Circuit schematic (without wiring, to keep it clean)
 

@@ -10,7 +10,7 @@ function AccountMode() {
         console.log(entry.currency, Number(entry.balance).toFixed(3));
     })
     .catch(error => {
-      // handle the error
+      // TODO: Error handling
   });
 };
 
