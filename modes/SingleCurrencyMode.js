@@ -7,7 +7,7 @@ function SingleCurrencyMode(args) {
   const mainCurrency = args[1];
 
   motion.on("change", () => lcd.clear().print('Motion works'));
-  
+
   fetch(`${apiURI}${mainCurrency}-${baseCurrency}/book?level=1`)
     .then(res => res.json())
   	.then(json => console.log(mainCurrency, json.asks[0][0]))

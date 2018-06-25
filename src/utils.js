@@ -20,7 +20,7 @@ function ok(current) {
 };
 
 function back(current) {
-  while(!current.up)
+  if (!current.up)
     current = current.next;
   args.pop();
   current = current.up;
