@@ -1,26 +1,35 @@
 # CryptoPi.js
 
-Cryptocurrency price-tracking app and hardware with Raspberry Pi 3 B+, first mocked with Arduino Uno Rev 3.
-
-## Main features (but in poor quality gif)
-
-![](schematic/CryptoPi.gif)
-
-## Circuit schematic (without wiring, to keep it clean)
-
-![Circuit schematic](schematic/schematic.png)
-
 ## Brief description
 
 App lets you keep track of prices of the most popular cryptos with hand gestures and soon with voice.
 It was mocked with Arduino, because of lack of Wi-Fi in Uno Rev 3 model, but now it's being developed on Raspberry Pi 3 B+.
 
+## Main features
+
+* Single Currency Mode - switching between currencies via hand gesture
+* Ticker Tape Mode - crypto prices sliding like on old-school 90's Wall St. Ticker Tapes
+* Trading/Account Mode - Check Your balance, buy/sell cryptos with a few button clicks
+* Custom menu build as a Tree of Linked Lists
+
+![](schematic/MenuDiagram.gif)
+
+## Circuit schematic (without wiring, to keep it clean)
+
+![Circuit schematic](schematic/schematic.png)
+
+## How it works
+
+Video compression hit this one hard. Sorry for the poor quality 😟
+
+![](schematic/CryptoPi.gif)
+
 ## Built With
 
-* [Raspberry Pi 3B+](https://www.raspberrypi.org/)
-* [Arduino Uno Rev 3](https://www.arduino.cc/)
-* [Johnny Five](http://johnny-five.io/)
-* [Node.js](https://nodejs.org/en/)
+* [Raspberry Pi 3B+](https://www.raspberrypi.org/) - credit card sized computer, 2018 model
+* [Arduino Uno Rev 3](https://www.arduino.cc/) - affordable, yet powerful microcontroller
+* [Johnny Five](http://johnny-five.io/) - JavaScript Robotics & IoT Platform
+* [Node.js](https://nodejs.org/en/) - Needs no introduction
 * Plenty of hardware from [Botland](https://botland.com.pl/)
 
 ## Further development
