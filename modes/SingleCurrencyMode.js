@@ -2,6 +2,7 @@ const fetch = require('node-fetch');
 const apiURI = 'https://api.gdax.com/products/';
 
 function SingleCurrencyMode(args) {
+  // Get currency names from args
   args = args.filter(arg => arg.length === 3);
   const baseCurrency = args[0];
   const mainCurrency = args[1];
@@ -11,7 +12,9 @@ function SingleCurrencyMode(args) {
   fetch(`${apiURI}${mainCurrency}-${baseCurrency}/book?level=1`)
     .then(res => res.json())
   	.then(json => console.log(mainCurrency, json.asks[0][0]))
-    .catch(e => console.log(e));
+    .catch(error => {
+      // TODO: Error handling
+  });
 };
 
 module.exports = SingleCurrencyMode;
