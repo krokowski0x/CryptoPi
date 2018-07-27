@@ -4,13 +4,13 @@ class Node {
     this.next = null;
     this.up = null;
     this.down = null;
-  }
+  };
 
   addChild(node) {
     this.down = node;
     node.up = this;
     return this;
-  }
+  };
 };
 
 class CircularLinkedList {
@@ -23,7 +23,7 @@ class CircularLinkedList {
       this.add(entry);
 
     this.get(entries.length - 1).next = this.head;
-  }
+  };
 
   add(data) {
     const node = new Node(data);
@@ -36,15 +36,14 @@ class CircularLinkedList {
       return this;
     }
 
-    while (nodeToCheck.next) {
+    while (nodeToCheck.next)
       nodeToCheck = nodeToCheck.next;
-    }
 
     nodeToCheck.next = node;
     this.nodes.push(node);
     this.length++;
     return node;
-  }
+  };
 
   get(num) {
     let nodeToCheck = this.head;
@@ -58,7 +57,7 @@ class CircularLinkedList {
       count++;
     }
     return nodeToCheck;
-  }
+  };
 };
 
 module.exports = {

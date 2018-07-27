@@ -38,6 +38,7 @@ board.on("ready", () => {
   let args = [];
   lcd.clear().print(current.data);
 
+  // Register event listeners
   backBtn.on("up", () => back(current));
   okBtn.on("up", () => ok(current));
   nextBtn.on("up", () => next(current));

@@ -14,6 +14,7 @@ rl.write(`${current.data}\n`);
 rl.on('line', (input) => {
   switch(input) {
 
+    // NEXT button
     case 'n':
       if (current.next) {
         current = current.next;
@@ -21,6 +22,7 @@ rl.on('line', (input) => {
       }
     break;
 
+    // OK button
     case 'k':
       if (!current.down) {
         current = current.up;
@@ -35,6 +37,7 @@ rl.on('line', (input) => {
         rl.write(`${current.data}\n`);
     break;
 
+    // BACK button
     case 'b':
       while(!current.up)
         current = current.next;

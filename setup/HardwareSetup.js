@@ -1,11 +1,14 @@
 const sleep = require('sleep').msleep;
 
 function display(digit) {
-  let first = Math.floor(digit/10);
+  // Number to digits
+  let first = Math.floor(digit / 10);
   let second = digit % 10;
+  // Port declaration
   const DISP_1 = new five.Led('P1-18');
   const DISP_2 = new five.Led('P1-16');
-  
+
+  // TODO: Infinite loop for multiplexing
   DISP_1.on();
   DISP_2.off();
   displayDigit(first);
